@@ -3,6 +3,7 @@ package Game;
 import People.Person;
 import Rooms.Room;
 import Rooms.WinningRoom;
+import Rooms.firstRoom;
 
 import java.util.Scanner;
 
@@ -20,7 +21,13 @@ public class Runner {
 		{
 			for (int y = 0; y < building[x].length; y++)
 			{
-				building[x][y] = new Room(x,y);
+				double count = (Math.random()*2);
+				if(count > 1){
+					building[x][y] = new Room(x,y);
+				}else{
+					building[x][y] = new firstRoom(x,y);
+				}
+
 			}
 		}
 		
@@ -119,6 +126,9 @@ public class Runner {
 		gameOn = false;
 	}
 	
+	public static void nextRoom() {
+		gameOn = true;
 
+	}
 
 }
