@@ -4,6 +4,7 @@ import People.Person;
 import Rooms.Room;
 import Rooms.WinningRoom;
 import Rooms.firstRoom;
+import Rooms.secondRom;
 
 import java.util.Scanner;
 
@@ -12,37 +13,29 @@ public class Runner {
 
 	private static boolean gameOn = true;
 	
-	public static void main(String[] args)
-	{
-		Room[][] building = new Room[5][5];
+	public static void main(String[] args){
+		String opName = "";
+		Scanner in = new Scanner(System.in);
+		System.out.print("What is your name operator?");
+		opName = in.nextLine();
+		Room[][] building = new Room[4][4];
 		
-		//Fill the building with normal rooms
-		for (int x = 0; x<building.length; x++)
-		{
-			for (int y = 0; y < building[x].length; y++)
-			{
-				double count = (Math.random()*2);
-				if(count > 1){
-					building[x][y] = new Room(x,y);
-				}else{
-					building[x][y] = new firstRoom(x,y);
-				}
+		//Fill the building with all of the games rooms
+		building[0][0] = new firstRoom(0,0);
+		building[1][0] = new secondRom(1,0);
 
-			}
-		}
 		
-		//Create a random winning room.
-		int x = (int)(Math.random()*building.length);
-		int y = (int)(Math.random()*building.length);
-		building[x][y] = new WinningRoom(x, y);
+		//The winning room became annoying but i'll keep it for now
+		//int x = (int)(Math.random()*building.length);
+		//int y = (int)(Math.random()*building.length);
+		//building[x][y] = new WinningRoom(x, y);
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
 		building[0][0].enterRoom(player1);
-		Scanner in = new Scanner(System.in);
 		while(gameOn)
 		{
-			System.out.println("Where would you like to move? (Choose N, S, E, W)");
+			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)");
 			String move = in.nextLine();
 			if(validMove(move, player1, building))
 			{
