@@ -2,8 +2,7 @@ package Game;
 
 import People.Person;
 import Rooms.Room;
-import Rooms.WinningRoom;
-import Rooms.firstRoom;
+import Rooms.login;
 import Rooms.secondRom;
 
 import java.util.Scanner;
@@ -16,12 +15,12 @@ public class Runner {
 	public static void main(String[] args){
 		String opName = "";
 		Scanner in = new Scanner(System.in);
-		System.out.print("What is your name operator?");
+		System.out.println("What is your name operator?");
 		opName = in.nextLine();
 		Room[][] building = new Room[4][4];
 		
 		//Fill the building with all of the games rooms
-		building[0][0] = new firstRoom(0,0);
+		building[0][0] = new login(0,0);
 		building[1][0] = new secondRom(1,0);
 
 		
@@ -31,7 +30,7 @@ public class Runner {
 		//building[x][y] = new WinningRoom(x, y);
 		 
 		 //Setup player 1 and the input scanner
-		Person player1 = new Person("FirstName", "FamilyName", 0,0);
+		Person player1 = new Person(opName, 0,0);
 		building[0][0].enterRoom(player1);
 		while(gameOn)
 		{
@@ -119,9 +118,6 @@ public class Runner {
 		gameOn = false;
 	}
 	
-	public static void nextRoom() {
-		gameOn = true;
 
-	}
 
 }

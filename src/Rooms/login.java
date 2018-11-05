@@ -3,8 +3,8 @@ package Rooms;
 import Game.Runner;
 import People.Person;
 
-public class firstRoom extends Room{
-    public firstRoom(int x, int y){
+public class login extends Room{
+    public login(int x, int y){
         super(x,y);
     }
     @Override
@@ -13,6 +13,5 @@ public class firstRoom extends Room{
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
         System.out.println("Welcome to this game" +  "that shall go unnamed.");
-        Runner.nextRoom();
     }
 }

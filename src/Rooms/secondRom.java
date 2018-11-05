@@ -9,6 +9,5 @@ public class secondRom extends Room{
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
         System.out.println("");
-        Runner.nextRoom();
     }
 }
