@@ -12,6 +12,6 @@ public class login extends Room{
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("Welcome to this game" +  "that shall go unnamed.");
+        System.out.println("Welcome to this game" +  " that shall go unnamed. Below is the map, You have started in the top left corner.");
     }
 }

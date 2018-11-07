@@ -12,14 +12,15 @@ public class Board {
     public Board(Room[][] map){
         this.map = map;
     }
-    public Board(int height, int width){
-        map = new Room[height][width];
+    public static String printBoard(int height, int width){
+        String str = "";
         for(int i = 0; i <height; i++){
-            for(int j = 0; j <width; j++){
-                System.out.println(j);
+            for(int j = 0; j <width; j++) {
+                str = str + "[x]";
             }
-            System.out.println("\n");
+            str = str + "\n";
         }
+        return str;
     }
 
 }

@@ -4,8 +4,22 @@ import People.Person;
 import Rooms.Room;
 import Rooms.login;
 import Rooms.secondRom;
-
+import Game.Board;
 import java.util.Scanner;
+import Rooms.thirdRom;
+import Rooms.fourthRom;
+import Rooms.fifthRom;
+import Rooms.sixthRom;
+import Rooms.seventhRom;
+import Rooms.eigthRom;
+import Rooms.ninthRom;
+import Rooms.tenthRom;
+import Rooms.eleventhRom;
+import Rooms.twelthRom;
+import Rooms.thirteenthRom;
+import Rooms.fourteenthRom;
+import Rooms.fifteenthRom;
+import Rooms.sixteenthRom;
 
 public class Runner {
 	
@@ -13,15 +27,30 @@ public class Runner {
 	private static boolean gameOn = true;
 	
 	public static void main(String[] args){
+		String newStr = "";
 		String opName = "";
 		Scanner in = new Scanner(System.in);
 		System.out.println("What is your name operator?");
 		opName = in.nextLine();
-		Room[][] building = new Room[4][4];
+		Room[][] building = new Room[3][3];
 		
 		//Fill the building with all of the games rooms
 		building[0][0] = new login(0,0);
 		building[1][0] = new secondRom(1,0);
+		building[2][0] = new thirdRom(2,0);
+		building[3][0] = new fourthRom(3,0);
+		building[0][1] = new fifthRom(0,1);
+		building[0][2] = new sixthRom(0,2);
+		building[0][3] = new seventhRom(0,3);
+		building[1][1] = new eigthRom(1,1);
+		building[1][2] = new ninthRom(1,2);
+		building[1][3] = new tenthRom(1,3);
+		building[2][1] = new eleventhRom(2,1);
+		building[2][2] = new twelthRom(2,2);
+		building[2][3] = new thirteenthRom(2,3);
+		building[3][1] = new fourteenthRom(3,1);
+		building[3][2] = new fifteenthRom(3,2);
+		building[3][3] = new sixteenthRom(3,3);
 
 		
 		//The winning room became annoying but i'll keep it for now
@@ -34,10 +63,12 @@ public class Runner {
 		building[0][0].enterRoom(player1);
 		while(gameOn)
 		{
+			System.out.println(Board.printBoard(3, 3));
 			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)");
 			String move = in.nextLine();
 			if(validMove(move, player1, building))
 			{
+
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 				
 			}
