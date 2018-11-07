@@ -8,6 +8,6 @@ public class secondRom extends Room{
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("");
+        System.out.println("Oof, day two and still not there");
     }
 }

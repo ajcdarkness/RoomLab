@@ -12,6 +12,7 @@ public class Board {
     public Board(Room[][] map){
         this.map = map;
     }
+
     public static String printBoard(int height, int width){
         String str = "";
         for(int i = 0; i <height; i++){

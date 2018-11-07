@@ -38,21 +38,21 @@ public class Runner {
 		building[0][0] = new login(0,0);
 		building[1][0] = new secondRom(1,0);
 		building[2][0] = new thirdRom(2,0);
-		building[3][0] = new fourthRom(3,0);
-		building[0][1] = new fifthRom(0,1);
-		building[0][2] = new sixthRom(0,2);
-		building[0][3] = new seventhRom(0,3);
-		building[1][1] = new eigthRom(1,1);
-		building[1][2] = new ninthRom(1,2);
-		building[1][3] = new tenthRom(1,3);
-		building[2][1] = new eleventhRom(2,1);
+		building[0][1] = new fourthRom(3,0);
+		building[0][2] = new fifthRom(0,1);
+		building[1][1] = new sixthRom(0,2);
+		building[1][2] = new seventhRom(0,3);
+		building[2][1] = new eigthRom(1,1);
+		building[2][2] = new ninthRom(1,2);
+		/*building[3][1] = new tenthRom(1,3);
+		building[3][2] = new eleventhRom(2,1);
 		building[2][2] = new twelthRom(2,2);
 		building[2][3] = new thirteenthRom(2,3);
 		building[3][1] = new fourteenthRom(3,1);
 		building[3][2] = new fifteenthRom(3,2);
 		building[3][3] = new sixteenthRom(3,3);
 
-		
+		*/
 		//The winning room became annoying but i'll keep it for now
 		//int x = (int)(Math.random()*building.length);
 		//int y = (int)(Math.random()*building.length);
@@ -104,7 +104,7 @@ public class Runner {
 					return false;
 				}
 			case "e":
-				if (p.getyLoc()< map[p.getyLoc()].length -1)
+				if (p.getyLoc()< map[p.getyLoc()].length-1)
 				{
 					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
 					map[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
@@ -116,7 +116,7 @@ public class Runner {
 				}
 
 			case "s":
-				if (p.getxLoc() < map.length - 1)
+				if (p.getxLoc() < map.length-1)
 				{
 					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
 					map[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
