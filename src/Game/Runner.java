@@ -44,25 +44,21 @@ public class Runner {
 		building[1][2] = new seventhRom(0,3);
 		building[2][1] = new eigthRom(1,1);
 		building[2][2] = new ninthRom(1,2);
-		/*building[3][1] = new tenthRom(1,3);
-		building[3][2] = new eleventhRom(2,1);
-		building[2][2] = new twelthRom(2,2);
-		building[2][3] = new thirteenthRom(2,3);
-		building[3][1] = new fourteenthRom(3,1);
-		building[3][2] = new fifteenthRom(3,2);
-		building[3][3] = new sixteenthRom(3,3);
 
-		*/
+
+
 		//The winning room became annoying but i'll keep it for now
 		//int x = (int)(Math.random()*building.length);
 		//int y = (int)(Math.random()*building.length);
 		//building[x][y] = new WinningRoom(x, y);
 		 
 		 //Setup player 1 and the input scanner
-		Person player1 = new Person(opName, 0,0);
+		Person player1 = new Person(opName, 0,0, 100);
 		building[0][0].enterRoom(player1);
 		while(gameOn)
 		{
+			double rNum = 0;
+			rNum = Math.random() * 10;
 			System.out.println(Board.printBoard(3, 3));
 			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)");
 			String move = in.nextLine();
