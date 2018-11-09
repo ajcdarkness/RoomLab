@@ -9,6 +9,7 @@ public class Person {
 	int hp;
 
 
+
 	public int getxLoc() {
 		return xLoc;
 	}

@@ -4,7 +4,7 @@ import People.Person;
 import Rooms.Room;
 import Rooms.login;
 import Rooms.secondRom;
-import Game.Board;
+
 import java.util.Scanner;
 import Rooms.thirdRom;
 import Rooms.fourthRom;
@@ -12,14 +12,8 @@ import Rooms.fifthRom;
 import Rooms.sixthRom;
 import Rooms.seventhRom;
 import Rooms.eigthRom;
+import Rooms.WinningRoom;
 import Rooms.ninthRom;
-import Rooms.tenthRom;
-import Rooms.eleventhRom;
-import Rooms.twelthRom;
-import Rooms.thirteenthRom;
-import Rooms.fourteenthRom;
-import Rooms.fifteenthRom;
-import Rooms.sixteenthRom;
 
 public class Runner {
 	
@@ -35,22 +29,26 @@ public class Runner {
 		Room[][] building = new Room[3][3];
 		
 		//Fill the building with all of the games rooms
-		building[0][0] = new login(0,0);
-		building[1][0] = new secondRom(1,0);
-		building[2][0] = new thirdRom(2,0);
-		building[0][1] = new fourthRom(3,0);
-		building[0][2] = new fifthRom(0,1);
-		building[1][1] = new sixthRom(0,2);
-		building[1][2] = new seventhRom(0,3);
-		building[2][1] = new eigthRom(1,1);
-		building[2][2] = new ninthRom(1,2);
+
+		int x = (int)(Math.random()*building.length);
+		int y = (int)(Math.random()*building.length);
+		building[x][y] = new WinningRoom(x, y);
 
 
+		int h = 3;
+		int w = 3;
+		String str = "";
+		for(int i = 0; i <h; i++){
+			for(int j = 0; j <w; j++) {
+				if(building[i][j] != null){
 
+				}else{
+					building[i][j] = new secondRom(i, j);
+				}
+			}
+		}
 		//The winning room became annoying but i'll keep it for now
-		//int x = (int)(Math.random()*building.length);
-		//int y = (int)(Math.random()*building.length);
-		//building[x][y] = new WinningRoom(x, y);
+
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person(opName, 0,0, 100);
@@ -59,15 +57,16 @@ public class Runner {
 		{
 			double rNum = 0;
 			rNum = Math.random() * 10;
-			System.out.println(Board.printBoard(3, 3));
-			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)");
+			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)" + "\n You can also choose to look at the map by typing 'map' ");
 			String move = in.nextLine();
 			if(validMove(move, player1, building))
 			{
 
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
 				
-			}
+			}if(move.equals("map")){
+				System.out.println(Board.printBoard(3,3));
+		}
 			else {
 				System.out.println("Please choose a valid move.");
 			}
