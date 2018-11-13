@@ -17,11 +17,11 @@ public class secondRom extends Room{
         Scanner work = new Scanner(System.in);
         choice = work.nextLine();
         selection = choice.toLowerCase();
-        if(selection == "run"){
+        if(choice == "run"){
             System.out.println("yay");
-        }else if(selection == "attack"){
+        }else if(choice == "attack"){
             System.out.println("You kill the beast, but it hurt you as well dealing " +" damage");
-        }else if(selection == "hide"){
+        }else if(choice == "hide"){
 
         }
     }

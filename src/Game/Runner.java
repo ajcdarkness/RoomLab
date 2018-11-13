@@ -17,7 +17,12 @@ public class Runner {
 		String newStr = "";
 		int width = 10;
 		int height = 10;
+		String opName = "";
 		Scanner in = new Scanner(System.in);
+		Scanner ugh = new Scanner(System.in);
+		Scanner game = new Scanner(System.in);
+		//Gets building dimensions
+
 		System.out.println("What width board would you like to play on, operator? Please respond with a single number");
 		width = in.nextInt();
 
@@ -25,7 +30,7 @@ public class Runner {
 		height = in.nextInt();
 
 		System.out.println("What is your name operator?");
-		String opName = in.nextLine();
+		opName = ugh.nextLine();
 
 		Room[][] building = new Room[height][width];
 		
@@ -58,13 +63,14 @@ public class Runner {
 		Person player1 = new Person(opName, 0,0, 100);
 		int hp = 100;
 		building[0][0].enterRoom(player1);
+
 		while(gameOn)
 		{
 
 			double rNum = 0;
 			rNum = Math.random() * 10;
 			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)" + "\n You can also choose to look at the map by typing 'map' ");
-			String move = in.nextLine();
+			String move = game.nextLine();
 			if(validMove(move, player1, building))
 			{
 
