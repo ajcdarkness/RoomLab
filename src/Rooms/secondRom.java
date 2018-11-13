@@ -9,17 +9,19 @@ public class secondRom extends Room{
     @Override
     public void enterRoom(Person x){
         String choice = "";
+        String selection = "";
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
         System.out.println("You encounter a wild animal! Do you run, attack or hide?");
         Scanner work = new Scanner(System.in);
         choice = work.nextLine();
-        if(choice == "run"){
-
-        }else if(choice == "attack"){
+        selection = choice.toLowerCase();
+        if(selection == "run"){
+            System.out.println("yay");
+        }else if(selection == "attack"){
             System.out.println("You kill the beast, but it hurt you as well dealing " +" damage");
-        }else if(choice == "hide"){
+        }else if(selection == "hide"){
 
         }
     }
