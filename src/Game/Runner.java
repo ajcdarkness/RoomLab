@@ -3,6 +3,7 @@ package Game;
 import People.Person;
 import Rooms.Room;
 import Rooms.secondRom;
+import Rooms.login;
 
 import java.util.Scanner;
 
@@ -15,12 +16,14 @@ public class Runner {
 	
 	public static void main(String[] args){
 		String newStr = "";
+		int hp = 100;
 		int width = 10;
 		int height = 10;
 		String opName = "";
 		Scanner in = new Scanner(System.in);
 		Scanner ugh = new Scanner(System.in);
 		Scanner game = new Scanner(System.in);
+		Scanner turn = new Scanner(System.in);
 		//Gets building dimensions
 
 		System.out.println("What width board would you like to play on, operator? Please respond with a single number");
@@ -61,28 +64,32 @@ public class Runner {
 		 
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person(opName, 0,0, 100);
-		int hp = 100;
+		System.out.println("Find the winning room before dying!");
 		building[0][0].enterRoom(player1);
 
 		while(gameOn)
 		{
-
+			if(hp <= 0){
+				gameOff();
+			}
 			double rNum = 0;
 			rNum = Math.random() * 10;
 			System.out.println("Where would you like to move, " + opName + "? (Choose N, S, E, W)" + "\n You can also choose to look at the map by typing 'map' ");
 			String move = game.nextLine();
 			if(validMove(move, player1, building))
 			{
-
+				hp = hp - 15;
 				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
+				System.out.println("Your health is " + hp);
 				
 			}if(move.equals("map")){
 				System.out.println(Board.printBoard(height,width, player1.getxLoc(), player1.getyLoc()));
+
 		}
 			else {
 				System.out.println("Please choose a valid move.");
 			}
-			
+
 			
 		}
 		in.close();

@@ -8,6 +8,7 @@ public class secondRom extends Room{
     public secondRom(int x, int y){super(x,y);}
     @Override
     public void enterRoom(Person x){
+        int hp = x.gethp();
         String choice = "";
         String selection = "";
         occupant = x;
@@ -17,12 +18,15 @@ public class secondRom extends Room{
         Scanner work = new Scanner(System.in);
         choice = work.nextLine();
         selection = choice.toLowerCase();
-        if(choice == "run"){
-            System.out.println("yay");
-        }else if(choice == "attack"){
-            System.out.println("You kill the beast, but it hurt you as well dealing " +" damage");
-        }else if(choice == "hide"){
 
+        if(choice == "run"){
+            System.out.println("You almost died but you managed to outrun the beast");
+        }else if(selection.equals("attack")){
+            System.out.println("You kill the beast, but it hurt you as well");
+
+        }else if(choice == "hide"){
+            System.out.println("The beast finds you but you managed to survive");
         }
     }
+
 }
